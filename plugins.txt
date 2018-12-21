@@ -37,7 +37,7 @@ docker-workflow
 durable-task
 ec2
 email-ext
-envinject
+envinject:1.90
 extended-choice-parameter
 external-monitor-job
 favorite

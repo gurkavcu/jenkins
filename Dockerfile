@@ -4,7 +4,7 @@ FROM jenkins/jenkins:2.156-alpine
 USER root
 
 # Add jenkins to wheel for run docker
-RUN adduser -G wheel jenkins
+RUN sed -i "/^wheel:/s/$/,jenkins/" /etc/group
 
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh gettext make docker

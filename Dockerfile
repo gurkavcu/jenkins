@@ -3,17 +3,14 @@ FROM jenkins/jenkins:2.156-alpine
 
 USER root
 
+# Add jenkins to wheel for run docker
+RUN adduser -G wheel jenkins
+
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh gettext make docker
 
 # Allow the jenkins user to run docker
 RUN adduser jenkins docker
-
-# Su permission
-RUN chmod u+s /bin/busybox
-
-# Add jenkins to wheel for run docker
-RUN adduser -G wheel jenkins
 
 # Drop back to the regular jenkins user
 USER jenkins

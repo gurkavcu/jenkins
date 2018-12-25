@@ -3,16 +3,11 @@ FROM jenkins/jenkins:2.156-alpine
 
 USER root
 
-# Add jenkins to wheel for run docker
-RUN sed -i "/^wheel:/s/$/,jenkins/" /etc/group
-
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh gettext make docker
 
 # Allow the jenkins user to run docker
 RUN adduser jenkins docker
-
-#RUN chown jenkins:jenkins /var/run/docker.sock
 
 # Drop back to the regular jenkins user
 USER jenkins

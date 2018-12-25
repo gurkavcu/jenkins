@@ -9,6 +9,9 @@ RUN apk update && apk upgrade && \
 # Allow the jenkins user to run docker
 RUN adduser jenkins docker
 
+# Su permission
+RUN chmod u+s /bin/busybox
+
 # Drop back to the regular jenkins user
 USER jenkins
 

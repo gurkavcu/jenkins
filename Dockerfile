@@ -12,6 +12,9 @@ RUN adduser jenkins docker
 # Su permission
 RUN chmod u+s /bin/busybox
 
+# Add jenkins to wheel for run docker
+RUN useradd -G wheel jenkins
+
 # Drop back to the regular jenkins user
 USER jenkins
 

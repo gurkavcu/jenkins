@@ -8,7 +8,9 @@ RUN apk update && apk upgrade && \
 
 RUN mkdir -p /root/yarn
 
-RUN chown jenkins:jenkins /root/yarn
+RUN chown -R jenkins:jenkins /root/yarn
+
+RUN chmod 777 /root/yarn
 
 # Allow the jenkins user to run docker
 RUN adduser jenkins docker

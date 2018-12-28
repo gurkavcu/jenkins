@@ -6,6 +6,12 @@ USER root
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh gettext make docker
 
+RUN mkdir -p /yarn
+
+RUN chown -R jenkins:jenkins /yarn
+
+RUN chmod 777 /yarn
+
 # Allow the jenkins user to run docker
 RUN adduser jenkins docker
 
@@ -15,12 +21,6 @@ RUN chmod +x /usr/local/bin/docker-compose
 
 # Drop back to the regular jenkins user
 USER jenkins
-
-RUN mkdir -p /yarn
-
-RUN chown -R jenkins:jenkins /yarn
-
-RUN chmod 777 /yarn
 
 # 1. Disable Jenkins setup Wizard UI. The initial user and password will be supplied by Terraform via ENV vars during infrastructure creation
 # 2. Set Java DNS TTL to 60 seconds

@@ -9,6 +9,10 @@ RUN apk update && apk upgrade && \
 # Allow the jenkins user to run docker
 RUN adduser jenkins docker
 
+RUN curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+RUN chmod +x /usr/local/bin/docker-compose
+
 # Drop back to the regular jenkins user
 USER jenkins
 

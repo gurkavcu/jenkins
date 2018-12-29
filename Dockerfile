@@ -13,6 +13,12 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-c
 
 RUN chmod +x /usr/local/bin/docker-compose
 
+RUN mkdir -p /var/jenkins
+
+RUN chown -R jenkins:jenkins /var/jenkins
+
+RUN chmod 777 /var/jenkins
+
 # Drop back to the regular jenkins user
 USER jenkins
 

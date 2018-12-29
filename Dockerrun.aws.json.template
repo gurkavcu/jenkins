@@ -6,6 +6,10 @@
         "ContainerDirectory": "/var/jenkins_home"
     },
     {
+        "HostDirectory": "/var/jenkins",
+        "ContainerDirectory": "/var/jenkins"
+    },
+    {
         "HostDirectory": "/var/run/docker.sock",
         "ContainerDirectory": "/var/run/docker.sock"
     },

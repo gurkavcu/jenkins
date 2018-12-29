@@ -6,12 +6,6 @@ USER root
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh gettext make docker
 
-RUN mkdir -p /yarn
-
-RUN chown -R jenkins:jenkins /yarn
-
-RUN chmod 777 /yarn
-
 # Allow the jenkins user to run docker
 RUN adduser jenkins docker
 
